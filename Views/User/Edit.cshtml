@@ -1,0 +1,70 @@
+﻿@model TechTest.Models.UserModel
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar</h1>
+
+<h4>Usuario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PersonId" />
+            <div class="form-group">
+                <label asp-for="PersonName" class="control-label"></label>
+                <input asp-for="PersonName" class="form-control" />
+                <span asp-validation-for="PersonName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonAge" class="control-label"></label>
+                <input asp-for="PersonAge" class="form-control" />
+                <span asp-validation-for="PersonAge" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PersonStatus" /> @Html.DisplayNameFor(model => model.PersonStatus)
+                </label>
+            </div>
+    <div>
+            <dl class="row">
+        <dt class="col-sm-10">
+                @Html.DisplayNameFor(model => model.PersonDisDate)
+        </dt>
+        <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.PersonDisDate)
+        </dd>
+        <dt class="col-sm-10">
+                @Html.DisplayNameFor(model => model.PersonModDate)
+        </dt>
+        <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.PersonModDate)
+        </dd>
+            </dl>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonSex" class="control-label"></label>
+                <input asp-for="PersonSex" class="form-control" />
+                <span asp-validation-for="PersonSex" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
